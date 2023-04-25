@@ -18,7 +18,7 @@ namespace WeatherAPI.Controllers
             _config = configuration;
         }
 
-        private string GenerateToken(Users user)
+        private string GenerateToken()
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtAuthentication:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -35,7 +35,7 @@ namespace WeatherAPI.Controllers
         [HttpPost]
         public IActionResult Login(Users user)
         {
-            var token = GenerateToken(user);
+            var token = GenerateToken();
             IActionResult response = Ok(new { token = token });
 
             return response;
