@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using WeatherAPI.Models;
+using WeatherAPI.Services;
 
 namespace WeatherAPI.Controllers
 {
@@ -13,9 +14,12 @@ namespace WeatherAPI.Controllers
     public class LoginController : ControllerBase
     {
         private IConfiguration _config;
-        public LoginController(IConfiguration configuration)
+        private IUserService userService;
+
+        public LoginController(IConfiguration configuration, IUserService userService)
         {
             _config = configuration;
+            this.userService = userService;
         }
 
         private string GenerateToken()
@@ -36,7 +40,8 @@ namespace WeatherAPI.Controllers
         public IActionResult Login(Users user)
         {
             var token = GenerateToken();
-            IActionResult response = Ok(new { token = token });
+            userService.Create(user);
+            IActionResult response = Ok(new { id = user.Id, token = token });
 
             return response;
         }

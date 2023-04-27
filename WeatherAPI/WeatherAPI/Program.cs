@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using System.Text;
+using WeatherAPI.Models;
+using WeatherAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -18,6 +23,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         };
     });
 
+//MongoDb database service
+builder.Services.Configure<UserStoreDatabaseSettings>(
+    builder.Configuration.GetSection(nameof(UserStoreDatabaseSettings)));
+
+builder.Services.AddSingleton<IUserStoreDatabaseSettings>(
+    sp => sp.GetRequiredService<IOptions<UserStoreDatabaseSettings>>().Value);
+
+builder.Services.AddSingleton<IMongoClient>(
+    s => new MongoClient(builder.Configuration.GetValue<string>("UserStoreDatabaseSettings:ConnectionString")));
+
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 builder.Services.AddControllers();
@@ -34,7 +50,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//Enable authentication
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
