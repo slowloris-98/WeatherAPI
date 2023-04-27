@@ -13,7 +13,7 @@ namespace WeatherAPI.Services
             _cities = database.GetCollection<City>(settings.CityCollectionName);
         }
 
-        public string GetCity(ObjectId cityId)
+        public string GetCity(string cityId)
         {
             try
             {

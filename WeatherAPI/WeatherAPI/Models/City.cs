@@ -10,18 +10,18 @@ namespace WeatherAPI.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("id")]
-        public ObjectId CityId { get; set; }
+        public string CityId { get; set; }
 
         [BsonElement("cityname")]
         public string CityName { get; set; } = string.Empty;
     }
 
-    public class CityValidator : AbstractValidator<City>
-    {
-        public CityValidator()
-        {
-            RuleFor(x => x.CityId).NotEmpty();
-            RuleFor(x => x.CityName).Empty();
-        }
-    }
+    //public class CityValidator : AbstractValidator<City>
+    //{
+    //    public CityValidator()
+    //    {
+    //        RuleFor(x => x.CityId).NotEmpty();
+    //        RuleFor(x => x.CityName).Empty();
+    //    }
+    //}
 }

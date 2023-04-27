@@ -5,6 +5,6 @@ namespace WeatherAPI.Services
 {
     public interface ICityService
     {
-        string GetCity(ObjectId cityId);
+        string GetCity(string cityId);
     }
 }
