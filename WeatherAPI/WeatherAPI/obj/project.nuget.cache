@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sHDRO8vlvsxlvpe4fk54FeeoWd60JY6IuzjqWNC90J3YDYHC6SgPCNZ7iu+fEG7Z4nOqkIn2DG0fWWBgw9HnPQ==",
+  "dgSpecHash": "smsY723I8uzJMm4XDRZ4Osr9Ck2SUBIoZwbi5DgNPntz7dPYMbwho3fvYE/Dk257clsIoP3EAliOb7Es/Sdrag==",
   "success": true,
   "projectFilePath": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\atrey\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\atrey\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\atrey\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\atrey\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\atrey\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
     "C:\\Users\\atrey\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\atrey\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

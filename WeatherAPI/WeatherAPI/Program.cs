@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using System.Text;
 using WeatherAPI.Models;
 using WeatherAPI.Services;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,10 @@ builder.Services.AddSingleton<IStoreDatabaseSettings>(
 
 builder.Services.AddSingleton<IMongoClient>(
     s => new MongoClient(builder.Configuration.GetValue<string>("StoreDatabaseSettings:ConnectionString")));
+
+
+//Fluent Validation
+
 
 //Dependency
 builder.Services.AddScoped<IUserService, UserService>();

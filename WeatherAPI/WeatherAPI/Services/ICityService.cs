@@ -1,9 +1,10 @@
-﻿using WeatherAPI.Models;
+﻿using MongoDB.Bson;
+using WeatherAPI.Models;
 
 namespace WeatherAPI.Services
 {
     public interface ICityService
     {
-        string GetCity(string cityId);
+        string GetCity(ObjectId cityId);
     }
 }

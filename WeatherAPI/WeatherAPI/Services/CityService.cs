@@ -13,11 +13,10 @@ namespace WeatherAPI.Services
             _cities = database.GetCollection<City>(settings.CityCollectionName);
         }
 
-        public string GetCity(string cityId)
+        public string GetCity(ObjectId cityId)
         {
             try
             {
-                var query_id = ObjectId.Parse(cityId);
                 var cityName = _cities.Find(city => city.CityId == cityId).FirstOrDefault().CityName;
                 if(!string.IsNullOrWhiteSpace(cityName))
                 {
