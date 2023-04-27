@@ -14,13 +14,27 @@ namespace WeatherAPI.Services
 
         public List<Users> GetUser() 
         {
-            return _users.Find(user => true).ToList();
+            try
+            {
+                return _users.Find(user => true).ToList();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public Users Create(Users user) 
         {
-            _users.InsertOne(user);
-            return user;
+            try
+            {
+                _users.InsertOne(user);
+                return user;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

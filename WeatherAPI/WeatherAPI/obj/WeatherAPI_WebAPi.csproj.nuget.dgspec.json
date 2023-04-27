@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {}
+    "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI_WebAPi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj": {
+    "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI_WebAPi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
-        "projectName": "WeatherAPI",
-        "projectPath": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI.csproj",
+        "projectUniqueName": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI_WebAPi.csproj",
+        "projectName": "WeatherAPI_WebAPi",
+        "projectPath": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\WeatherAPI_WebAPi.csproj",
         "packagesPath": "C:\\Users\\atrey\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\atrey\\source\\repos\\WebAPIProject\\WeatherAPI\\WeatherAPI\\obj\\",
         "projectStyle": "PackageReference",

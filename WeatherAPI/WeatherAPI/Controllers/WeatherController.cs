@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson.IO;
+using System.Net;
+using System.Net.Sockets;
+using WeatherAPI.Models;
+using WeatherAPI.Services;
 
 namespace WeatherAPI.Controllers
 {
@@ -8,11 +13,35 @@ namespace WeatherAPI.Controllers
     [ApiController]
     public class WeatherController : ControllerBase
     {
+        private IConfiguration _config;
+        private IIPService ipService;
+        private IWeatherService weatherService;
+
+        public WeatherController(IConfiguration configuration, IIPService ipService, IWeatherService weatherService)
+        {
+            _config = configuration;
+            this.ipService = ipService;
+            this.weatherService = weatherService;
+        }
+
+
         [Authorize]
         [HttpGet]
-        public string Weather()
+        public IActionResult Weather()
         {
-            return "Authenticated with JWT";
+            string clientIP = Response.HttpContext.Connection.RemoteIpAddress.ToString();
+
+            if (clientIP == "::1")
+            {
+                clientIP = Dns.GetHostEntry(Dns.GetHostName()).AddressList[1].ToString();
+            }
+
+            string city = ipService.GetCityAsync(clientIP).Result;
+            string temp = weatherService.GetTemperatureAsync(city).Result;
+
+            IActionResult response = Ok(new { temperature = temp, ip = clientIP });
+
+            return response;
         }
     }
 }
