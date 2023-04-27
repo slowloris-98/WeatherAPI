@@ -39,7 +39,7 @@ namespace WeatherAPI.Controllers
             string city = ipService.GetCityAsync(clientIP).Result;
             string temp = weatherService.GetTemperatureAsync(city).Result;
 
-            IActionResult response = Ok(new { temperature = temp, ip = clientIP });
+            IActionResult response = Ok(new { temperature = temp });
 
             return response;
         }

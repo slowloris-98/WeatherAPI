@@ -25,17 +25,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     });
 
 //MongoDb database service
-builder.Services.Configure<UserStoreDatabaseSettings>(
-    builder.Configuration.GetSection(nameof(UserStoreDatabaseSettings)));
+builder.Services.Configure<StoreDatabaseSettings>(
+    builder.Configuration.GetSection(nameof(StoreDatabaseSettings)));
 
-builder.Services.AddSingleton<IUserStoreDatabaseSettings>(
-    sp => sp.GetRequiredService<IOptions<UserStoreDatabaseSettings>>().Value);
+builder.Services.AddSingleton<IStoreDatabaseSettings>(
+    sp => sp.GetRequiredService<IOptions<StoreDatabaseSettings>>().Value);
 
 builder.Services.AddSingleton<IMongoClient>(
-    s => new MongoClient(builder.Configuration.GetValue<string>("UserStoreDatabaseSettings:ConnectionString")));
+    s => new MongoClient(builder.Configuration.GetValue<string>("StoreDatabaseSettings:ConnectionString")));
 
 //Dependency
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IIPService, IPService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 

@@ -37,11 +37,11 @@ namespace WeatherAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Login(Users user)
+        public IActionResult Login(User user)
         {
             var token = GenerateToken();
             userService.Create(user);
-            IActionResult response = Ok(new { id = user.Id, token = token });
+            IActionResult response = Ok(new { JW_Token = token });
 
             return response;
         }

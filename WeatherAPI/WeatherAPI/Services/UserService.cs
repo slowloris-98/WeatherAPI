@@ -5,14 +5,14 @@ namespace WeatherAPI.Services
 {
     public class UserService : IUserService
     {
-        private IMongoCollection<Users> _users;
-        public UserService(IUserStoreDatabaseSettings settings, IMongoClient mongoClient) 
+        private IMongoCollection<User> _users;
+        public UserService(IStoreDatabaseSettings settings, IMongoClient mongoClient) 
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
-            _users = database.GetCollection<Users>(settings.UserCollectionName);
+            _users = database.GetCollection<User>(settings.UserCollectionName);
         }
 
-        public List<Users> GetUser() 
+        public List<User> GetUser() 
         {
             try
             {
@@ -24,7 +24,7 @@ namespace WeatherAPI.Services
             }
         }
 
-        public Users Create(Users user) 
+        public User Create(User user) 
         {
             try
             {

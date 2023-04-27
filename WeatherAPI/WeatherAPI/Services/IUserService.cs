@@ -4,7 +4,7 @@ namespace WeatherAPI.Services
 {
     public interface IUserService
     {
-        List<Users> GetUser();
-        Users Create(Users user);
+        List<User> GetUser();
+        User Create(User user);
     }
 }
